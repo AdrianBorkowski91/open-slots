@@ -6,7 +6,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <main className="flex-1 p-6">{children}</main>
+        <>{children}</>
       </SidebarInset>
     </SidebarProvider>
   );

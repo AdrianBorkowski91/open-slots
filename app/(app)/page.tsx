@@ -1,3 +1,14 @@
-export default function Home() {
-  return <div>HOME</div>;
+import TitlePageHeader from "@/components/layout/page-header/title-page-header";
+
+export default function Events() {
+  return (
+    <TitlePageHeader
+      title={"Katalog wydarzeń"}
+      description={
+        "Odkrywaj ciekawe wydarzenia, warsztaty i spotkania. Zapisz się i dołącz do społeczności."
+      }
+    >
+      EventsPage
+    </TitlePageHeader>
+  );
 }

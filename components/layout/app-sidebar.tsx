@@ -28,7 +28,7 @@ export function AppSidebar() {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size={"lg"} render={<Link href="/public" />}>
+            <SidebarMenuButton size={"lg"} render={<Link href="/" />}>
               <CalendarDays />
               Katalog wydarzeń
             </SidebarMenuButton>
