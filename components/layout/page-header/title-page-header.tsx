@@ -1,5 +1,5 @@
-import PageHeader from "@/components/layout/page-header/page-header";
 import { ReactNode } from "react";
+import PageHeader from "@/components/layout/page-header/page-header";
 
 interface TitlePageHeaderProps {
   title: string;

@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+model User {
+  id String @id @default(cuid())
+  email String @unique @db.VarChar(100)
+  name String @db.VarChar(100)
+  passwordHash String
+  bio String? @db.VarChar(200)
+  avatarUrl String?
+  organizedEvents Event[]
+  registrations EventRegistration[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Event {
+  id String @id @default(cuid())
+  organizerId String
+  organizer User @relation(fields: [organizerId], references: [id])
+  statusId String
+  status EventStatus @relation(fields: [statusId], references: [id])
+  categoryId String
+  category EventCategory @relation(fields: [categoryId], references: [id])
+  cityId String
+  city City @relation(fields: [cityId], references: [id])
+  title String @db.VarChar(100)
+  imageUrl String?
+  date DateTime
+  maxPlaces Int
+  shortDescription String? @db.VarChar(200)
+  description String
+  agendaElements AgendaElement[]
+  registrations EventRegistration[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EventCategory {
+  id String @id @default(cuid())
+  name String @unique @db.VarChar(100)
+  events Event[]
+}
+
+model EventStatus {
+  id String @id @default(cuid())
+  name String @unique @db.VarChar(100)
+  events Event[]
+}
+
+model City {
+  id String @id @default(cuid())
+  name String @unique @db.VarChar(100)
+  events Event[]
+}
+
+model AgendaElement {
+  id String @id @default(cuid())
+  name String @db.VarChar(100)
+  minutes Int
+  position Int
+  eventId String
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  @@unique([eventId, position])
+}
+
+model EventRegistration {
+  id String @id @default(cuid())
+  eventId String
+  event Event @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  isWaitlisted Boolean @default(false)
+  createdAt DateTime @default(now())
+  @@unique([eventId, userId])
+  @@index([eventId, isWaitlisted, createdAt])
+}
