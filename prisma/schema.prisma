@@ -15,7 +15,7 @@ model User {
   id String @id @default(cuid())
   email String @unique @db.VarChar(100)
   name String @db.VarChar(100)
-  passwordHash String
+  password String
   bio String? @db.VarChar(200)
   avatarUrl String?
   organizedEvents Event[]
@@ -28,8 +28,7 @@ model Event {
   id String @id @default(cuid())
   organizerId String
   organizer User @relation(fields: [organizerId], references: [id])
-  statusId String
-  status EventStatus @relation(fields: [statusId], references: [id])
+  status EventStatus @default(DRAFT)
   categoryId String
   category EventCategory @relation(fields: [categoryId], references: [id])
   cityId String
@@ -52,10 +51,11 @@ model EventCategory {
   events Event[]
 }
 
-model EventStatus {
-  id String @id @default(cuid())
-  name String @unique @db.VarChar(100)
-  events Event[]
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+  ARCHIVED
 }
 
 model City {
