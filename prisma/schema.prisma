@@ -35,6 +35,7 @@ model Event {
   city City @relation(fields: [cityId], references: [id])
   title String @db.VarChar(100)
   imageUrl String?
+  thumbnailUrl String?
   date DateTime
   maxPlaces Int
   shortDescription String? @db.VarChar(200)

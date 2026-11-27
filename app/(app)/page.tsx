@@ -1,7 +1,11 @@
+import { getPublishedEvents } from "@/lib/data/events/service";
 import TitlePageHeader from "@/components/layout/page-header/title-page-header";
 import EventFilters from "@/components/shared/event-filters/event-filters";
+import EventCardList from "@/components/shared/event-card-list/event-card-list";
 
-export default function Events() {
+export default async function Events() {
+  const eventCards = await getPublishedEvents();
+
   return (
     <TitlePageHeader
       title={"Katalog wydarzeń"}
@@ -10,6 +14,7 @@ export default function Events() {
       }
     >
       <EventFilters />
+      <EventCardList eventCards={eventCards} />
     </TitlePageHeader>
   );
 }

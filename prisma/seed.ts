@@ -149,6 +149,8 @@ async function main() {
       shortDescription: "Praktyczne warsztaty z biblioteki React.",
       description:
         "Tworzenie aplikacji z wykorzystaniem komponentów, hooków oraz zarządzania stanem.",
+      imageUrl: "/images/seed/event.webp",
+      thumbnailUrl: "/images/seed/event-thumbnail.webp",
       registeredCount: 10,
       waitlistedCount: 5,
     },
@@ -163,6 +165,8 @@ async function main() {
       shortDescription: "Wprowadzenie do TypeScript.",
       description:
         "Poznaj typy, interfejsy, funkcje generyczne oraz podstawowe mechanizmy TypeScript.",
+      imageUrl: "/images/seed/event.webp",
+      thumbnailUrl: "/images/seed/event-thumbnail.webp",
       registeredCount: 5,
       waitlistedCount: 3,
     },
@@ -177,6 +181,8 @@ async function main() {
       shortDescription: "Poznaj nowych ludzi z branży IT.",
       description:
         "Spotkanie dla osób zainteresowanych wymianą doświadczeń i budowaniem relacji zawodowych.",
+      imageUrl: "/images/seed/event.webp",
+      thumbnailUrl: "/images/seed/event-thumbnail.webp",
       registeredCount: 0,
       waitlistedCount: 0,
     },
@@ -191,6 +197,8 @@ async function main() {
       shortDescription: "Naucz się podstaw fotografii.",
       description:
         "Praktyczne zajęcia dotyczące kompozycji, ekspozycji i pracy ze światłem.",
+      imageUrl: "/images/seed/event.webp",
+      thumbnailUrl: "/images/seed/event-thumbnail.webp",
       registeredCount: 5,
       waitlistedCount: 0,
     },
@@ -204,6 +212,8 @@ async function main() {
       maxPlaces: 15,
       shortDescription: "Zajęcia jogi dla początkujących.",
       description: "Podstawowe pozycje, ćwiczenia oddechowe i relaksacja.",
+      imageUrl: "/images/seed/event.webp",
+      thumbnailUrl: "/images/seed/event-thumbnail.webp",
       registeredCount: 4,
       waitlistedCount: 0,
     },
@@ -218,6 +228,8 @@ async function main() {
       shortDescription: "Spotkanie entuzjastów technologii.",
       description:
         "Konferencja poświęcona nowoczesnym technologiom i architekturze aplikacji.",
+      imageUrl: '/images/seed/event.webp"',
+      thumbnailUrl: "/images/seed/event-thumbnail.webp",
       registeredCount: 20,
       waitlistedCount: 0,
     },
